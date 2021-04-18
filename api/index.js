@@ -10,8 +10,14 @@ app.get("/", (req, res) => {
 });
 
 const auth = require('./auth')
+const user = require('./user')
+const tasklist = require('./tasklist')
+const statistics = require('./statistics')
 
 app.use('/api',auth)
+app.use('/api',user)
+app.use('/api',tasklist)
+app.use('/api',statistics)
 
 app.listen(port, () => {
     console.log(`Server is on ${port} Visit http://localhost:${port}`);
