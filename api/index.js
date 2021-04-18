@@ -2,8 +2,9 @@ const express = require("express");
 const app = express();
 const port = 3301;
 // Body parser
-app.use(express.urlencoded({ extended: false }));
-
+//app.use(express.json())
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static('public'))
 // Home route
 app.get("/", (req, res) => {
     res.send("Welcome to a basic express App");
