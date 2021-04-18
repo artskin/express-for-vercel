@@ -1,0 +1,24 @@
+{
+  "name": "express-for-vercel",
+  "version": "1.0.0",
+  "description": "express-mock-api-for-vercel",
+  "main": "api/index.js",
+  "scripts": {
+    "dev": "node api/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/artskin/express-for-vercel.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/artskin/express-for-vercel/issues"
+  },
+  "homepage": "https://github.com/artskin/express-for-vercel#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+  }
+}
