@@ -31,6 +31,26 @@ router.get('/userlist',(req,res,next)=>{
         msg:'ok'
       })
 })
+router.get('/userinfo',(req,res,next)=>{
+    let {uid} = req.query
+    userList.map(item=>{
+        if(item.id == uid){
+            res.json({
+                code:2000,
+                data:item,
+                msg:'ok'
+            })
+        }else{
+            res.statusCode = 400
+            res.json({
+                code:4000,
+                data:null,
+                msg:'ok'
+            })
+        }
+    })
+    
+})
 
 
 module.exports = router
