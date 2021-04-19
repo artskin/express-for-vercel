@@ -18,7 +18,7 @@ function generateData(){
 }
 
 
-router.get('/statistics',(req,res,next)=>{
+router.get('/statistics/list',(req,res,next)=>{
     res.json({
         code:2000,
         msg:'ok',
