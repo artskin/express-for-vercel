@@ -22,7 +22,9 @@ router.get('/statistics',(req,res,next)=>{
     res.json({
         code:2000,
         msg:'ok',
-        data:generateData()
+        data:{
+            list:generateData()
+        }
     })
 })
 
