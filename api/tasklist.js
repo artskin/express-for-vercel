@@ -31,11 +31,13 @@ function generateData(len){
 }
 
 
-router.get('/tasklist',(req,res,next)=>{
+router.get('/task/list',(req,res,next)=>{
     res.json({
         code:2000,
         msg:'ok',
-        data:generateData(10)
+        data:{
+          list:generateData(10)
+        }
     })
 })
 

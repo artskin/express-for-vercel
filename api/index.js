@@ -1,11 +1,23 @@
 const express = require("express");
 const app = express();
-const { createProxyMiddleware } = require('http-proxy-middleware');
+const cors = require('cors')
 const port = 3301;
 // Body parser
-//app.use(express.json())
+app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'))
+// base-header-setting
+app.use(cors())
+app.use((req,res,next)=>{
+    console.log(req.url)
+//     res.setHeader("Access-Control-Allow-Origin", "*")
+//     res.setHeader("Access-Control-Allow-Headers", "Content-Type,Content-Length, Authorization, Accept,X-Requested-With")
+//     res.setHeader("Access-Control-Allow-Methods","PUT,POST,GET,DELETE,OPTIONS")
+//     //res.setHeader("X-Powered-By",'3.2.1')
+//     //if(req.method ==='OPTIONS') res.send(200);
+//     //else
+next();
+})
 // Home route
 app.get("/", (req, res) => {
     res.send("Welcome to a basic express App");
