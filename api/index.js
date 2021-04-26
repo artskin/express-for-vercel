@@ -9,7 +9,7 @@ app.use(express.static('public'))
 // base-header-setting
 app.use(cors())
 app.use((req,res,next)=>{
-    console.log(req.url,req.body)
+    console.log(req.url)
 //     res.setHeader("Access-Control-Allow-Origin", "*")
 //     res.setHeader("Access-Control-Allow-Headers", "Content-Type,Content-Length, Authorization, Accept,X-Requested-With")
 //     res.setHeader("Access-Control-Allow-Methods","PUT,POST,GET,DELETE,OPTIONS")
@@ -28,12 +28,14 @@ const user = require('./user')
 const tasklist = require('./tasklist')
 const statistics = require('./statistics')
 const toplist = require('./toplist')
+const records = require('./records')
 
 app.use('/api',auth)
 app.use('/api',user)
 app.use('/api',tasklist)
 app.use('/api',toplist)
 app.use('/api',statistics)
+app.use('/api',records)
 
 app.listen(port, () => {
     console.log(`Server is on ${port} Visit http://localhost:${port}`);

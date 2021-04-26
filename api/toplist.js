@@ -1,29 +1,29 @@
 const router = require("express").Router();
+const faker = require('faker');
 
-const itemNames = ['Visitor','Saler','Viper','Stranger']
-const itemIcons = ['data-line','coin','sell','user'];//el-icon-
-const zfItems = ['-','+']
 
-function generateData(){
+
+function generateData(len){
     let list=[]
-    for (let i = 0; i < 4; i++) {
+    for (let i = 0; i < len; i++) {
         list.push({
-          "name": itemNames[i] || 'default',
-          "value": Math.floor(Math.random()*10000),
-          "percent": zfItems[Math.round(Math.random())]+Math.floor(Math.random()*100)/100,
-          "icon":itemIcons[i]
+          "name": faker.name.firstName(),
+          "portrait": faker.image.avatar(),
+          "time": faker.datatype.datetime(),
+          "value": faker.datatype.number(),
+          "progress":faker.datatype.number(100),
         })
     }
     return list
 }
 
 
-router.get('/statistics/list',(req,res,next)=>{
+router.get('/top/list',(req,res,next)=>{
     res.json({
         code:2000,
         msg:'ok',
         data:{
-            list:generateData()
+            list:generateData(5)
         }
     })
 })
