@@ -27,10 +27,12 @@ const auth = require('./auth')
 const user = require('./user')
 const tasklist = require('./tasklist')
 const statistics = require('./statistics')
+const toplist = require('./toplist')
 
 app.use('/api',auth)
 app.use('/api',user)
 app.use('/api',tasklist)
+app.use('/api',toplist)
 app.use('/api',statistics)
 
 app.listen(port, () => {
