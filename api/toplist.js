@@ -14,6 +14,10 @@ function generateData(len){
           "progress":faker.datatype.number(100),
         })
     }
+    list.map(item=>{
+        item.value = item.progress*103;
+    })
+    list.sort((a,b) => b['progress'] - a['progress'])
     return list
 }
 
