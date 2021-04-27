@@ -1,8 +1,6 @@
 const router = require("express").Router();
 const faker = require('faker');
 
-
-
 function generateData(len){
     let list=[]
     for (let i = 0; i < len; i++) {
@@ -21,13 +19,36 @@ function generateData(len){
     return list
 }
 
-
 router.get('/top/list',(req,res,next)=>{
     res.json({
         code:2000,
         msg:'ok',
         data:{
             list:generateData(5)
+        }
+    })
+})
+
+function generateData2(len){
+    let list=[]
+    for (let i = 0; i < len; i++) {
+        list.push({
+          "title": faker.commerce.productName(),
+          "intro": faker.commerce.productDescription(),
+          "time": faker.datatype.datetime(),
+          "icon": faker.datatype.number()
+        })
+    }
+    return list
+}
+
+
+router.get('/top/items',(req,res,next)=>{
+    res.json({
+        code:2000,
+        msg:'ok',
+        data:{
+            list:generateData2(5)
         }
     })
 })
