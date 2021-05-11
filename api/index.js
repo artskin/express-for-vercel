@@ -1,22 +1,36 @@
 const express = require("express");
 const app = express();
 const cors = require('cors')
+const {createToken,verifyToken} = require('./token.js');
 const port = 3301;
+
 // Body parser
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'))
 // base-header-setting
 app.use(cors())
+//api校验
+const whiteList = ['/','/api/login','/api/reg','/api/captcha','/api/auth/login']
 app.use((req,res,next)=>{
-    console.log(req.url)
 //     res.setHeader("Access-Control-Allow-Origin", "*")
 //     res.setHeader("Access-Control-Allow-Headers", "Content-Type,Content-Length, Authorization, Accept,X-Requested-With")
 //     res.setHeader("Access-Control-Allow-Methods","PUT,POST,GET,DELETE,OPTIONS")
 //     //res.setHeader("X-Powered-By",'3.2.1')
 //     //if(req.method ==='OPTIONS') res.send(200);
 //     //else
-next();
+    if(req.url.includes('api') && !whiteList.includes(req.url)){
+        verifyToken(req.headers.authorization).then(res =>{
+            next()
+        }).catch(err=>{
+            res.json({
+                code:401,
+                msg:'token无效'
+            })
+        })
+    } else {
+        next()
+    }
 })
 // Home route
 app.get("/", (req, res) => {
