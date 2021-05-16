@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const cors = require('cors')
-const {createToken,verifyToken} = require('./token.js');
+const {verifyToken} = require('./token.js');
 const port = 3301;
 
 // Body parser
@@ -23,9 +23,10 @@ app.use((req,res,next)=>{
         verifyToken(req.headers.authorization).then(res =>{
             next()
         }).catch(err=>{
+            res.status = 401
             res.json({
                 code:401,
-                msg:'token无效'
+                message:'token过期或无效'
             })
         })
     } else {

@@ -8,7 +8,9 @@ const userList = [
         introduction: 'I am a administrator',
         email: 'admin@163.com',
         phone: '18522133212',
-        roles: ['admin']
+        roles: ['admin'],
+        modules:[],
+        permissionCodes:['2007021','2007022','2009527',]
     },
     {
         id: 1,
@@ -19,7 +21,9 @@ const userList = [
         introduction: 'I am an editor',
         email: 'editor@163.com',
         phone: '18532245678',
-        roles: ['editor']
+        roles: ['editor'],
+        modules:[],
+        permissionCodes:['2007021','2007022']
     }
 ];
 
