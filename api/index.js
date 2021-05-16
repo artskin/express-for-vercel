@@ -11,7 +11,7 @@ app.use(express.static('public'))
 // base-header-setting
 app.use(cors())
 //api校验
-const whiteList = ['/','/api/login','/api/reg','/api/captcha','/api/auth/login']
+const whiteList = ['/','/api/auth/login','/api/reg','/api/captcha','/api/auth/logout']
 app.use((req,res,next)=>{
 //     res.setHeader("Access-Control-Allow-Origin", "*")
 //     res.setHeader("Access-Control-Allow-Headers", "Content-Type,Content-Length, Authorization, Accept,X-Requested-With")
