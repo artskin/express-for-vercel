@@ -4,7 +4,7 @@ const scret = "amu@2021";
 //生成token
 const createToken = (info)=>{
   let token = jwt.sign(info,scret,{
-    expiresIn: 60  * 10
+    expiresIn: 60 * 10 * 10
   })
   return token
 }

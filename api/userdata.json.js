@@ -9,7 +9,7 @@ const userList = [
         email: 'admin@163.com',
         phone: '18522133212',
         roles: ['admin'],
-        modules:[],
+        modules:['usermanage'],
         permissionCodes:['2007021','2007022','2009527',]
     },
     {
