@@ -5,7 +5,7 @@ function generateData(len){
     let list=[]
     for (let i = 0; i < len; i++) {
         list.push({
-          "name": faker.internet.userName(),
+          "name": faker.person.firstName(),
           "portrait": faker.image.avatar(),
           "time": faker.date.anytime(),
           "value": faker.number.int({ max: 10000 }),
