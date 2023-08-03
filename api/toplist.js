@@ -1,15 +1,15 @@
 const router = require("express").Router();
-const faker = require('@faker-js/faker');
-
+const {faker} = require('@faker-js/faker');
+console.warn(faker)
 function generateData(len){
     let list=[]
     for (let i = 0; i < len; i++) {
         list.push({
-          "name": faker.name.firstName(),
+          "name": faker.internet.userName(),
           "portrait": faker.image.avatar(),
-          "time": faker.datatype.datetime(),
-          "value": faker.datatype.number(),
-          "progress":faker.datatype.number(100),
+          "time": faker.date.anytime(),
+          "value": faker.number.float(),
+          "progress":faker.number.float(100),
         })
     }
     list.map(item=>{
@@ -35,8 +35,8 @@ function generateData2(len){
         list.push({
           "title": faker.commerce.productName(),
           "intro": faker.commerce.productDescription(),
-          "time": faker.datatype.datetime(),
-          "icon": faker.datatype.number()
+          "time": faker.date.anytime(),
+          "icon": faker.number.float()
         })
     }
     return list
