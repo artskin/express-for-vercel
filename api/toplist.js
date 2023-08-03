@@ -8,8 +8,8 @@ function generateData(len){
           "name": faker.internet.userName(),
           "portrait": faker.image.avatar(),
           "time": faker.date.anytime(),
-          "value": faker.number.float(),
-          "progress":faker.number.float(100),
+          "value": faker.number.int({ max: 10000 }),
+          "progress":faker.number.float(100).toFixed(2),
         })
     }
     list.map(item=>{
@@ -36,7 +36,7 @@ function generateData2(len){
           "title": faker.commerce.productName(),
           "intro": faker.commerce.productDescription(),
           "time": faker.date.anytime(),
-          "icon": faker.number.float()
+          "icon": faker.number.int(10)
         })
     }
     return list
