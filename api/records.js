@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const faker = require('faker');
+const faker = require('@faker-js/faker');
 
 const sourceType = ['UNKNOWN','VN_RTSP','VN_ONVIF','FC_SENSEPASS']
 faker.locale = "zh_CN";
