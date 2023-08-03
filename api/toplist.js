@@ -8,7 +8,7 @@ function generateData(len){
           "name": faker.person.firstName(),
           "portrait": faker.image.avatar(),
           "time": faker.date.anytime(),
-          "value": faker.number.int({ max: 10000 }),
+          "value": faker.number.int({ max: 10000 }).toFixed(0),
           "progress":faker.number.float(100).toFixed(2),
         })
     }
